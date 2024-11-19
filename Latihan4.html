@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Informasi Pribadi</title>
+</head>
+<body>
+    <h1>Formulir Informasi Pribadi</h1>
+
+    <form id="formulir">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="hobi">Hobi:</label><br>
+        <input type="text" id="hobi" name="hobi" required><br><br>
+
+        <label for="umur">Umur:</label><br>
+        <input type="number" id="umur" name="umur" required><br><br>
+
+        <label for="makanan_favorit">Makanan Favorit:</label><br>
+        <input type="text" id="makanan_favorit" name="makanan_favorit" required><br><br>
+
+        <label for="film_favorit">Film Favorit:</label><br>
+        <input type="text" id="film_favorit" name="film_favorit" required><br><br>
+
+        <input type="submit" value="Kirim">
+    </form>
+
+    <h2>Hasil Pengisian Formulir</h2>
+    <p id="hasil"></p>
+
+    <script>
+        document('formulir').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir secara default
+
+            const nama = document.getElementById('nama').value;
+            const hobi = document.getElementById('hobi').value;
+            const umur = document.getElementById('umur').value;
+            const makananFavorit = document.getElementById('makanan_favorit').value;
+            const filmFavorit = document.getElementById('film_favorit').value;
+
+            // Menampilkan hasil pengisian
+            const hasil = `
+                <strong>Nama:</strong> ${nama} <br>
+                <strong>Hobi:</strong> ${hobi} <br>
+                <strong>Umur:</strong> ${umur} tahun <br>
+                <strong>Makanan Favorit:</strong> ${makananFavorit} <br>
+                <strong>Film Favorit:</strong> ${filmFavorit}
+            `;
+
+            document.getElementById('hasil').innerHTML = hasil;
+        });
+    </script>
+</body>
+</html>
